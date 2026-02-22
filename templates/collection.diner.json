@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "hero": {
+      "type": "diner-hero",
+      "settings": {
+        "neon_flicker": true
+      }
+    },
+    "fountain": {
+      "type": "milkshake-grid",
+      "settings": {
+        "neon_flicker": true
+      }
+    },
+    "grill": {
+      "type": "the-grill-menu",
+      "settings": {
+        "neon_flicker": true
+      }
+    },
+    "drips": {
+      "type": "parallax-scrolling-drips",
+      "settings": {
+        "neon_flicker": true
+      }
+    }
+  },
+  "order": ["hero", "fountain", "grill", "drips"]
+}

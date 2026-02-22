@@ -1,0 +1,25 @@
+<section class="grill-menu" data-yolo-section>
+  <h2 class="grill-menu__title">The Grill Menu</h2>
+  <div class="grill-menu__items">
+    {% for product in collections.all.products limit: 8 %}
+      {% unless product.tags contains 'Milkshake' %}
+        {% render 'product-card-yolo', product: product %}
+      {% endunless %}
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "The Grill Menu",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "neon_flicker",
+      "label": "Diner Accents: Neon flicker",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "The Grill Menu" }]
+}
+{% endschema %}

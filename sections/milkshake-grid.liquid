@@ -1,0 +1,35 @@
+<section class="milkshake-grid" data-yolo-section>
+  <h2 class="milkshake-grid__title">The Fountain</h2>
+  <div class="milkshake-grid__items">
+    {% assign shown = 0 %}
+    {% for product in collections.all.products %}
+      {% if product.tags contains 'Milkshake' and shown < 6 %}
+        {% assign shown = shown | plus: 1 %}
+      <article class="milkshake-grid__item product-card-yolo card">
+        <div class="milkshake-grid__glass">
+          <span class="milkshake-grid__rim"></span>
+          {% render 'product-card-yolo', product: product %}
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+    {% if shown == 0 %}
+      <p>No milkshakes tagged "Milkshake" yet.</p>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Milkshake Grid",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "neon_flicker",
+      "label": "Diner Accents: Neon flicker",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Milkshake Grid" }]
+}
+{% endschema %}

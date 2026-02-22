@@ -1,0 +1,22 @@
+<section class="parallax-drips" data-yolo-section>
+  <div class="parallax-drips__track">
+    {% for i in (1..6) %}
+      <span class="parallax-drips__drop" style="left: {{ forloop.index0 | times: 16 }}%"></span>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Parallax Scrolling Drips",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "neon_flicker",
+      "label": "Diner Accents: Neon flicker",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Parallax Scrolling Drips" }]
+}
+{% endschema %}

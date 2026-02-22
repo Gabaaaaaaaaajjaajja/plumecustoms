@@ -1,0 +1,22 @@
+<section class="diner-hero {% if section.settings.neon_flicker %}diner-hero--flicker{% endif %}" data-yolo-section>
+  <div class="diner-hero__inner">
+    <p class="diner-hero__kicker">1950s Radioactive Diner</p>
+    <h2 class="diner-hero__logo">Yolo!</h2>
+    <p class="diner-hero__copy">Atomic shakes, neon nights, and chrome-plated cravings.</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Diner Hero",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "neon_flicker",
+      "label": "Diner Accents: Neon flicker",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Diner Hero" }]
+}
+{% endschema %}
