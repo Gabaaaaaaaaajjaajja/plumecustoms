@@ -1,0 +1,7 @@
+<a class="product-card-yolo__link" href="{{ product.url }}">
+  <div class="product-card-yolo__image-wrap">
+    {{ product.featured_image | image_url: width: 600 | image_tag: class: 'product-card-yolo__image', loading: 'lazy' }}
+  </div>
+  <h3 class="product-card-yolo__title">{{ product.title }}</h3>
+  <p class="product-card-yolo__price">{{ product.price | money }}</p>
+</a>

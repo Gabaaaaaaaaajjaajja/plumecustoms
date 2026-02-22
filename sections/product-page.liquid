@@ -1,0 +1,40 @@
+<section class="product-page" data-yolo-section>
+  <article class="product-page__card card">
+    <h1>{{ product.title }}</h1>
+    <div class="product-page__media product-card-yolo__image-wrap">
+      {{ product.featured_image | image_url: width: 900 | image_tag: class: 'product-card-yolo__image', loading: 'lazy' }}
+    </div>
+    <p>{{ product.description }}</p>
+
+    {% assign scent = product.metafields.custom.scent.value | default: product.metafields.custom.scent %}
+    {% if scent != blank %}
+      <p class="product-page__scent">
+        <svg class="product-page__steam" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M8 20C7 16 11 14 10 10C9 7 12 5 12 3" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M15 21C14 17 18 15 17 11C16 8 19 6 19 4" stroke="currentColor" stroke-width="2" fill="none"/>
+        </svg>
+        Scent: {{ scent }}
+      </p>
+    {% endif %}
+
+    <product-form>
+      {% form 'product', product %}
+        <button type="submit" class="theme-diner__button product-page__add-to-tab">Add to Tab</button>
+      {% endform %}
+    </product-form>
+  </article>
+</section>
+
+{% schema %}
+{
+  "name": "Product Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "neon_flicker",
+      "label": "Diner Accents: Neon flicker",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

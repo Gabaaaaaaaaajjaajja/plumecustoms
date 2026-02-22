@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{ page_title }}{% if current_tags %} · tagged {{ current_tags | join: ', ' }}{% endif %}</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <style>
+      :root { --cursor-cherry: url('{{ 'cursor-cherry.svg' | asset_url }}') 8 8, auto; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="{{ 'yolo-animations.js' | asset_url }}" defer></script>
+  </head>
+  <body class="theme-diner">
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -10"
+            result="gooey"
+          />
+          <feComposite in="SourceGraphic" in2="gooey" operator="atop" />
+        </filter>
+      </defs>
+    </svg>
+
+    <header class="theme-diner__header" data-yolo-section>
+      <h1 class="theme-diner__wordmark">YOLO DINER</h1>
+      <a href="{{ routes.cart_url }}" class="theme-diner__button">THE TAB ({{ cart.item_count }})</a>
+    </header>
+
+    <main id="MainContent" role="main">
+      {{ content_for_layout }}
+    </main>
+
+    <aside id="TabDrawer" class="tab-drawer" aria-label="THE TAB">
+      <h2>THE TAB</h2>
+      {% render 'diner-ticket-receipt' %}
+    </aside>
+  </body>
+</html>
