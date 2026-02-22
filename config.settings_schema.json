@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Yolo Diner Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_neon",
+        "label": "Enable Neon Flicker",
+        "default": true
+      }
+    ]
+  }
+]
